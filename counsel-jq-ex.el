@@ -22,6 +22,15 @@
 (defcustom counsel-jq-buffer "*jq-json*"
   "Buffer for the `counsel-jq' query results.")
 
+
+(add-to-list 'display-buffer-alist
+	     `(,counsel-jq-buffer
+	       display-buffer-in-side-window
+	       (side . bottom)
+	       (slot . 1)
+	       (window-height . 0.4)))
+
+
 (defun counsel-call-jq (&optional query args output-buffer)
   "Call 'jq' use OUTPUT-BUFFER as output (default is 'standard-output'), with the QUERY and ARGS."
   (call-process-region
