@@ -90,7 +90,9 @@ will be displayed to you in the buffer in `counsel-jq-buffer'."
     (ivy-read "jq query: " #'(lambda (input)
 			       (counsel-jq-query-function input)
 			       (display-buffer counsel-jq-buffer)
-			       canditdates)
+			       (cl-remove-if-not
+				(lambda (x) (string-match (regexp-quote input) x))
+				canditdates))
               :action #'(1
 			 ("s" (lambda (_)
 				(display-buffer counsel-jq-buffer))
