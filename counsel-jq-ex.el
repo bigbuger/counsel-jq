@@ -26,9 +26,9 @@
 (add-to-list 'display-buffer-alist
 	     `(,counsel-jq-buffer
 	       display-buffer-in-side-window
-	       (side . bottom)
+	       (side . right)
 	       (slot . 1)
-	       (window-height . 0.4)))
+	       (window-width . 0.5)))
 
 
 (defun counsel-call-jq (&optional query args output-buffer)
